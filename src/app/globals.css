@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/* ============ NovaCode portfolio ============ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-grotesk, ui-sans-serif), ui-sans-serif, system-ui, sans-serif;
+}
+
+.nc-grid-bg {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 35%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 35%, transparent 100%);
+}
+
+.nc-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nc-reveal.nc-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes nc-fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+.nc-fade-up {
+  animation: nc-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes nc-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.nc-float {
+  animation: nc-float 7s ease-in-out infinite;
+}
+
+@keyframes nc-typing {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+.nc-dot-1 { animation: nc-typing 1.4s ease-in-out infinite; }
+.nc-dot-2 { animation: nc-typing 1.4s ease-in-out 0.2s infinite; }
+.nc-dot-3 { animation: nc-typing 1.4s ease-in-out 0.4s infinite; }
